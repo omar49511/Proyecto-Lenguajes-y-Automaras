@@ -1,0 +1,18 @@
+PARSER_BEGIN(Programa)
+public class Programa
+{
+  public static void main( String args []) throws ParseException{
+    try
+    {
+      Programa analizador = new Programa( System.in );
+      analizador.Iniciar();
+      System.out.println("La cadena fue aceptada correctamente");
+    }
+    catch(ParseException e)
+    {
+      System.out.println(e.getMessage());
+      System.out.println("Hubo un error y la cadena no fue acepatada");
+    }
+  }
+}
+PARSER_END(Programa)
