@@ -1,7 +1,9 @@
 PARSER_BEGIN(Programa)
+import java.util.logging.*;
+import java.io.*;
 public class Programa
 {
-  public static void main( String args []) throws ParseException{
+  /*public static void main( String args []) throws ParseException{
     try
     {
       Programa analizador = new Programa( System.in );
@@ -13,6 +15,379 @@ public class Programa
       System.out.println(e.getMessage());
       System.out.println("Hubo un error y la cadena no fue acepatada");
     }
-  }
+  }*/
+  
+    public static void main(String[] args) {
+		try {
+            Programa analizador = new Programa(new BufferedReader(new FileReader("./expresiones.txt")));
+            analizador.Iniciar();
+        } catch (ParseException e) {
+            System.err.println(e.getMessage());
+        }
+        catch (FileNotFoundException e) {
+            System.err.println(e.getMessage());
+        } 
+         catch(TokenMgrError e){
+            System.err.println(e.getMessage());
+        }
+    }
 }
 PARSER_END(Programa)
+
+/**Tokens que seran ignorados durante el analisis*/
+SKIP : {
+      " "
+    | "\t"
+    | "\r"
+    | "\n"
+    | <"//" (~["\n", "\r"])*>
+}
+
+void Iniciar() :
+{}
+{
+  (Instruccion()) + <EOF>
+}
+
+void Instruccion() :
+{}
+{
+(
+<CAPTURARDATO>|
+<OPERACIONESCARACTER>|
+<ABRIRARCHIVO>|
+<CERRARARCHIVO>|
+<RENOMBRARARCHIVO>|
+<REMOVERARCHIVO>|
+<ARCHIVOTEMPORAL>|
+<LEERARCHIVO>|
+<IMPRIMIRARCHIVO>|
+<LIMPIARBUFFER>|
+<COPIARCADENA>|
+<COMPARARCADENA>|
+<ENCONTRARCADENA>|
+<CONCATENARCADENA>|
+<LONGITUDCADENA>|
+<MENORENTERO>|
+<FUNCIONBESSEL>|
+<LOGARITMO>|
+<RAIZ>|
+<POTENCIA>|
+<EXPONENCIAL>|
+<FUNCIONESTRIGONOMETRICAS>|
+<FUNCIONESTRIGONOMETRICASINV>|
+<TRUNCARVALOR>|
+<REDONDEONUMERO>|
+<NUMEROALEATORIO>|
+<VALORABSOLUTO>|
+<ASIGNARMEMORIA>|
+<LIBERARMEMORIA>|
+<PARENTESISAPERTURA>|
+<PARENTESISCERRADURA>|
+<LLAVEAPERTURA>|
+<LLAVECERRADURA>|
+<CORCHETEAPERTURA>|
+<CORCHETECERRADURA>|
+<PUNTO>|
+<COMA>|
+<SEMICOLON>|
+<DORMIR>|
+<RETRASAR>|
+<DIRECTORIO>|
+<LLAMAR>|
+<MODULO>|
+<NUEVOTIPO>|
+<LISTA>|
+<PRIMEROLISTA>|
+<ULTIMOLISTA>|
+<TUPLA>|
+<PULSOSDERELOJ>|
+<OPERACIONESSTRINGNUMERO>|
+<ORDENAR>|
+<RANGO>|
+<OPERACIONESBIT>|
+<AYUDA>|
+<QUICKSORT>|
+<COLA>|
+<INICIOCRONOMETRO>|
+<FINCRONOMETRO>|
+<OBTENER>|
+<ASIGNAR>|
+<SOCKET>|
+<SERVIDORSOCKET>|
+<ENTRADADATOS>|
+<SALIDADATOSCLIENTE>|
+<SALIDADATOS>|
+<REMPLAZAR>|
+<CONVERTIR>|
+<LONGITUD>|
+<PILA>|
+<METERDATOPILA>|
+<SACARDATOPILA>|
+<CLONARPILA>|
+<MCD>|
+<MCM>|
+<ANALIZAGRAMATICA>|
+<PAR>|
+<PERTENECE>|
+<TODOS>|
+<OPERADORRELACIONAL>|
+<IMPRESION>|
+<ALGUNO>
+)
+  
+}
+
+//Declaracion de tokens
+
+//Token para impresion de caractreres
+TOKEN : {
+	<IMPRESION:"print"|"println"|"printf"|"WriteLine"|"Write"|"puts"|"show"|"putStrLn"|"putStr"|"echo"|"cout">{System.out.print("Impresion:  "+image+"\n");}
+}
+
+//Token para operadores realcionales
+TOKEN : {
+	<OPERADORRELACIONAL:"=="|"!="|"<="|">="|"<"|">">{System.out.print("Operador relacional:  "+image+"\n");}
+}
+
+//Token para la caputa de datos
+TOKEN : {
+	<CAPTURARDATO:"getchar"|"getch"|"ReadLine"|"Read"|"gets"|"nextLine"|"input"|"cin">{System.out.print("Captura de dato:  "+image+"\n");}
+}
+
+//Token para operaciones con caracter
+TOKEN : {
+	<OPERACIONESCARACTER:"atoi"|"isalnum"|"isalpha"|"islower"|"isupper"|"isdigit"|"isspace"|"isblank"|"tolower"|"toupper">{System.out.print("Operacion con caracter:  "+image+"\n");}
+}
+
+//Token para manejo de archivos
+TOKEN : {
+	<ABRIRARCHIVO:"fopen">{System.out.print("Abrir archivo:  "+image+"\n");}
+	|<CERRARARCHIVO:"fclose">{System.out.print("Cerrar archivo:  "+image+"\n");}
+	|<RENOMBRARARCHIVO:"rename">{System.out.print("Renombrar archivo:  "+image+"\n");}
+	|<REMOVERARCHIVO:"remove">{System.out.print("Remover archivo:  "+image+"\n");}
+	|<ARCHIVOTEMPORAL:"tmpfile">{System.out.print("Archivo temporal:  "+image+"\n");}
+	|<LEERARCHIVO:"fscanf">{System.out.print("Leer archivo:  "+image+"\n");}
+	|<IMPRIMIRARCHIVO:"fprintf">{System.out.print("Imprimir archivo:  "+image+"\n");}
+}
+
+//Token para limpiar el buffer
+TOKEN : {
+	<LIMPIARBUFFER:"fflush">{System.out.print("Limipar buffer:  "+image+"\n");}
+}
+
+//Token para operaciones con String
+TOKEN : {
+	<COPIARCADENA:"strcpy">{System.out.print("Copiar cadena:  "+image+"\n");}
+	|<COMPARARCADENA:"strcmp">{System.out.print("Comparar cadnea:  "+image+"\n");}
+	|<ENCONTRARCADENA:"strfind">{System.out.print("Encontra cadena:  "+image+"\n");}
+	|<CONCATENARCADENA:"strcat">{System.out.print("Concatenar cadena:  "+image+"\n");}
+	|<LONGITUDCADENA:"strlen">{System.out.print("Longitus cadena:  "+image+"\n");}
+}
+
+//Token para operaciones matematicas
+TOKEN : {
+	<MENORENTERO:"ceiling">{System.out.print("Menor entero:  "+image+"\n");}
+	|<FUNCIONBESSEL:"jn">{System.out.print("Funcion Bessel:  "+image+"\n");}
+	|<LOGARITMO:"log"|"log10">{System.out.print("Logaritmo:  "+image+"\n");}
+	|<RAIZ:"sqrt">{System.out.print("Raiz:  "+image+"\n");}
+	|<POTENCIA:"pow">{System.out.print("Potencia:  "+image+"\n");}
+	|<EXPONENCIAL:"exp">{System.out.print("Exponencial:  "+image+"\n");}
+	|<FUNCIONESTRIGONOMETRICAS:"cos"|"sin"|"tan">{System.out.print("Funcion trigonometrica:  "+image+"\n");}
+	|<FUNCIONESTRIGONOMETRICASINV:"acos"|"asin"|"atan">{System.out.print("Funcion trigonometrica inversa:  "+image+"\n");}
+	|<TRUNCARVALOR:"trunc">{System.out.print("Truncar valor:  "+image+"\n");}
+	|<REDONDEONUMERO:"ceil"|"floor"|"round">{System.out.print("Redondedo numero:  "+image+"\n");}
+	|<NUMEROALEATORIO:"rand">{System.out.print("Numero aleatorio:  "+image+"\n");}
+	|<VALORABSOLUTO:"abs"|"labs">{System.out.print("Valor ansoluto:  "+image+"\n");}
+}
+
+//Token para operaciones de memoria
+TOKEN : {
+	<ASIGNARMEMORIA:"malloc"|"realloc"|"calloc">{System.out.print("Asignar memoria:  "+image+"\n");}
+	|<LIBERARMEMORIA:"free">{System.out.print("Liberar memoria:  "+image+"\n");}
+}
+
+//Token para simbolos
+TOKEN : {
+	<PARENTESISAPERTURA:"(">{System.out.print("Parentesis apertura:  "+image+"\n");}
+	|<PARENTESISCERRADURA:")">{System.out.print("Parentesis cerradura:  "+image+"\n");}
+	|<LLAVEAPERTURA:"{">{System.out.print("Llave apertura:  "+image+"\n");}
+	|<LLAVECERRADURA:"}">{System.out.print("Llave cerradura:  "+image+"\n");}
+	|<CORCHETEAPERTURA:"[">{System.out.print("Corchete apertura:  "+image+"\n");}
+	|<CORCHETECERRADURA:"]">{System.out.print("Corchete cerradura:  "+image+"\n");}
+	|<PUNTO:".">{System.out.print("Punto:  "+image+"\n");}
+	|<COMA:",">{System.out.print("Coma:  "+image+"\n");}
+	|<SEMICOLON:";">{System.out.print("Semicolon:  "+image+"\n");}
+}
+
+//Token para operacion de dormir
+TOKEN : {
+	<DORMIR:"sleep">{System.out.print("Dormir:  "+image+"\n");}
+}
+
+//Token para delay
+TOKEN : {
+	<RETRASAR:"delay">{System.out.print("Retrasar:  "+image+"\n");}
+}
+
+//Token para diectorio
+TOKEN : {
+	<DIRECTORIO:"dir">{System.out.print("Directorio:  "+image+"\n");}
+}
+
+//Token para llamar una funcion
+TOKEN : {
+	<LLAMAR:"call">{System.out.print("Llamar:  "+image+"\n");}
+}
+
+//Token para modulo
+TOKEN : {
+	<MODULO:"module">{System.out.print("Modulo:  "+image+"\n");}
+}
+
+//Token para declarar un tipo nuevo
+TOKEN : {
+	<NUEVOTIPO:"newType">{System.out.print("Nuevo tipo:  "+image+"\n");}
+}
+
+//Token para lista
+TOKEN : {
+	<LISTA:"List">{System.out.print("Lista:  "+image+"\n");}
+	|<PRIMEROLISTA:"first"|"head">{System.out.print("Primero lista:  "+image+"\n");}
+	|<ULTIMOLISTA:"last"|"tail">{System.out.print("Ultimo lista:  "+image+"\n");}
+}
+
+//Token para tupla
+TOKEN : {
+	<TUPLA:"tuple">{System.out.print("Tupla:  "+image+"\n");}
+}
+
+//Token para pulsos de reloj
+TOKEN : {
+	<PULSOSDERELOJ:"clock">{System.out.print("Pulsos de reloj:  "+image+"\n");}
+}
+
+//Token para opreciones de string a numero
+TOKEN : {
+	<OPERACIONESSTRINGNUMERO:"atol"|"strtod"|"atof"|"strtol"|"strtoll"|"strtoull">{System.out.print("Operacion strin-numero:  "+image+"\n");}
+}
+
+//Token para ordenar 
+TOKEN : {
+	<ORDENAR:"sort">{System.out.print("Ordenar:  "+image+"\n");}
+}
+
+//Token para rango
+TOKEN : {
+	<RANGO:"range">{System.out.print("Rango:  "+image+"\n");}
+}
+
+//Token para operaciones con bits
+TOKEN : {
+	<OPERACIONESBIT:">>"|"<<"|"~">{System.out.print("Operacion bit:  "+image+"\n");}
+}
+
+//Token para ayuda
+TOKEN : {
+	<AYUDA:"help">{System.out.print("Ayuda:  "+image+"\n");}
+}
+
+//Token para metodo quicksort
+TOKEN : {
+	<QUICKSORT:"qsort">{System.out.print("Quicksort:  "+image+"\n");}
+}
+
+//Token para cola
+TOKEN : {
+	<COLA:"queue">{System.out.print("Cola:  "+image+"\n");}
+}
+
+//Token para funciones del cronometro
+TOKEN : {
+	<INICIOCRONOMETRO:"tic">{System.out.print("Inicio Cronometro:  "+image+"\n");}
+	|<FINCRONOMETRO:"toc">{System.out.print("Fin Cronometro:  "+image+"\n");}
+}
+
+//Token para set y get
+TOKEN : {
+	<OBTENER:"get">{System.out.print("Obtener:  "+image+"\n");}
+	|<ASIGNAR:"set">{System.out.print("Asignar:  "+image+"\n");}
+}
+
+//Token para Sockets
+TOKEN : {
+	<SOCKET:"Socket">{System.out.print("Socket:  "+image+"\n");}
+	|<SERVIDORSOCKET:"ServerSocket">{System.out.print("Servidor Socket:  "+image+"\n");}
+}
+
+//Token para entrada de datos
+TOKEN : {
+	<ENTRADADATOS:"InputStream">{System.out.print("Entrada datos:  "+image+"\n");}
+}
+
+//TOken para salida de datos en el cliente
+TOKEN : {
+	<SALIDADATOSCLIENTE:"OutputStream">{System.out.print("Salida datos cliente:  "+image+"\n");}
+}
+
+TOKEN : {
+	<SALIDADATOS:"DataOutputStream">{System.out.print("Salida datos:  "+image+"\n");}
+}
+
+//Token para funcion de remplazar
+TOKEN : {
+	<REMPLAZAR:"replace">{System.out.print("Remplazar:  "+image+"\n");}
+}
+
+//Token para convertir
+TOKEN : {
+	<CONVERTIR:"Convert">{System.out.print("Convertir:  "+image+"\n");}
+}
+
+//Token para longitud
+TOKEN : {
+	<LONGITUD:"length">{System.out.print("Longitud:  "+image+"\n");}
+}
+
+//Token para operaciones de la pila
+TOKEN : {
+	<PILA:"stack">{System.out.print("Pila:  "+image+"\n");}
+	|<METERDATOPILA:"push">{System.out.print("Meter pila:  "+image+"\n");}
+	|<SACARDATOPILA:"pop">{System.out.print("Sacar pila:  "+image+"\n");}
+	|<CLONARPILA:"clone">{System.out.print("Clonar pila:  "+image+"\n");}
+}
+
+//Token para MCD
+TOKEN : {
+	<MCD:"gcd">{System.out.print("MCD:  "+image+"\n");}
+}
+
+//Token para MCM
+TOKEN : {
+	<MCM:"lcm">{System.out.print("MCM:  "+image+"\n");}
+}
+
+//Token para analizar gramatica
+TOKEN : {
+	<ANALIZAGRAMATICA:"Parse">{System.out.print("Analiza gramatica:  "+image+"\n");}
+}
+
+//Token para even
+TOKEN : {
+	<PAR:"even">{System.out.print("Par:  "+image+"\n");}
+}
+
+//Token para funcion de peternece
+TOKEN : {
+	<PERTENECE:"elem">{System.out.print("Pertenece:  "+image+"\n");}
+}
+
+//Token para all
+TOKEN : {
+	<TODOS:"all">{System.out.print("Todos:  "+image+"\n");}
+}
+
+//Token para any
+TOKEN : {
+	<ALGUNO:"any">{System.out.print("Alguno:  "+image+"\n");}
+}
