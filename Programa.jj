@@ -25,55 +25,55 @@ TOKEN: /* Ciclos */
 {
 <CICLO: "do"| "for" | "while" | "loop">{System.out.println("CICLO -> "+ image);} //2
 }
-TOKEN: /**/
+TOKEN:
 {
 <CONDICION: ("if")+>{System.out.println("CONDICION -> "+ image);} //3
 }
-TOKEN: /**/
+TOKEN:
 {
 <SINO: ("else")+>{System.out.println("SINO -> "+ image);} //3
 }
-TOKEN: /**/
+TOKEN:
 {
 <CASO: ("case")+>{System.out.println("CASO -> "+ image);} //4
 }
-TOKEN: /**/
+TOKEN:
 {
 <CONSTANTE: "const">{System.out.println("CONSTANTE -> "+ image);} //5
 }
-TOKEN: /**/
+TOKEN:
 {
 <CLASE: "class">{System.out.println("CLASE -> "+ image);} //6
 }
-TOKEN: /**/
+TOKEN:
 {
 <LIMPIARCONSOLA: "clear">{System.out.println("LIMPIARCONSOLA -> "+ image);} //7
 }
-TOKEN: /**/
+TOKEN:
 {
 <DETENER: "break">{System.out.println("DETENER -> "+ image);} //8
 }
-TOKEN: /**/
+TOKEN:
 {
 <ESTATICO: "static">{System.out.println("ESTATICO -> "+ image);} //9
 }
-TOKEN: /**/
+TOKEN:
 {
 <FLUJOCONTROL: "switch">{System.out.println("FLUJOCONTROL -> "+ image);} //10
 }
-TOKEN: /**/
+TOKEN:
 {
 <MANEJOEXEPCIONES: "try"| "catch" | "throw">{System.out.println("MANEJOEXEPCIONES -> "+ image);} //11
 }
-TOKEN: /**/
+TOKEN:
 {
 <OPTIMIZACION: "volatile">{System.out.println("OPTIMIZACION -> "+ image);} //12
 }
-TOKEN: /**/
+TOKEN:
 {
 <PORDEFECTO: "default">{System.out.println("PORDEFECTO -> "+ image);} //13
 }
-TOKEN: /**/
+TOKEN:
 {
 <REGRESAR: "return">{System.out.println("REGRESAR -> "+ image);} //14
 }
@@ -83,119 +83,119 @@ TOKEN: /*TIPOS*/
 |<TIPODATO: "boolean" | "byte" | "char" | "double" | "float" | "int" | "varchar" | "decimal" | "tinyint"| "String" | "ushort" | "sbyte">{System.out.println("TIPODATO -> "+ image);} //16
 |<TIPOMETODO: "void">{System.out.println("TIPOMETODO -> "+ image);} //17
 }
-TOKEN: /**/
+TOKEN:
 {
 <ENUMERAR: "enum">{System.out.println("ENUMERAR -> "+ image);} //18
 }
-TOKEN: /**/
+TOKEN:
 {
 <SIZE: "sizeof">{System.out.println("SIZE -> "+ image);} //19
 }
-TOKEN: /**/
+TOKEN:
 {
 <ESTRUCTURA: "struct">{System.out.println("ESTRUCTURA -> "+ image);} //20
 }
-TOKEN: /**/
+TOKEN:
 {
 <UNION: "union">{System.out.println("UNION -> "+ image);} //21
 }
-TOKEN: /**/
+TOKEN:
 {
 <DESDE: "from">{System.out.println("DESDE -> "+ image);} //22
 }
-TOKEN: /**/
+TOKEN:
 {
 <CONTINUAR: "continue">{System.out.println("CONTINUAR -> "+ image);} //23
 }
-TOKEN: /**/
+TOKEN:
 {
 <IRA: "goto" | "jump">{System.out.println("IRA -> "+ image);} //24
 }
-TOKEN: /**/
+TOKEN:
 {
 <PAQUETE: "package">{System.out.println("PAQUETE -> "+ image);} //25
 }
-TOKEN: /**/
+TOKEN:
 {
 <OTROLENGUAJE: "native">{System.out.println("OTROLENGUAJE -> "+ image);} //26
 }
-TOKEN: /**/
+TOKEN:
 {
 <EXPORTAR: "export">{System.out.println("EXPORTAR -> "+ image);} //27
 }
-TOKEN: /**/
+TOKEN:
 {
 <COMPROBARVALOREN: "in">{System.out.println("COMPROBARVALOREN -> "+ image);} //28
 }
-TOKEN: /**/
+TOKEN:
 {
 <ES: "is">{System.out.println("ES -> "+ image);} //29
 }
-TOKEN: /**/
+TOKEN:
 {
 <BORRAR: "del" | "drop">{System.out.println("BORRAR -> "+ image);} //30
 }
-TOKEN: /**/
+TOKEN:
 {
 <NOOPERACION: "nop">{System.out.println("NOOPERACION -> "+ image);} //31
 }
-TOKEN: /**/
+TOKEN:
 {
 <DEFINIR: "#define">{System.out.println("DEFINIR -> "+ image);} //32
 }
-TOKEN: /**/
+TOKEN:
 {
 <INCLUIR: "#include">{System.out.println("INCLUIR -> "+ image);} //33
 }
-TOKEN: /**/
+TOKEN:
 {
 <SINCRONIZAR: "synchronized">{System.out.println("SINCRONIZAR -> "+ image);} //34
 }
-TOKEN: /**/
+TOKEN:
 {
 <HILO: "Thread">{System.out.println("HILO -> "+ image);} //35
 }
-TOKEN: /**/
+TOKEN:
 {
 <NUMEROSINSIGNO: "unsigned">{System.out.println("NUMEROSINSIGNO -> "+ image);} //36
 }
-TOKEN: /**/
+TOKEN:
 {
 <NUEVAINSTANCIA: "new">{System.out.println("NUEVAINSTANCIA -> "+ image);} //37
 }
-TOKEN: /**/
+TOKEN:
 {
 <ARREGLO: "Array">{System.out.println("ARREGLO -> "+ image);} //38
 }
-TOKEN: /**/
+TOKEN:
 {
 <IMPLEMENTAR: "implements">{System.out.println("IMPLEMENTAR -> "+ image);} //39
 }
-TOKEN: /**/
+TOKEN:
 {
 <SALIR: "exit" | "quit">{System.out.println("SALIR -> "+ image);} //40
 }
-TOKEN: /**/
+TOKEN:
 {
 <CERRAR: "close">{System.out.println("CERRAR -> "+ image);} //41
 }
-TOKEN: /**/
+TOKEN:
 {
 <EMPEZAR: "begin">{System.out.println("EMPEZAR -> "+ image);} //42
 }
-TOKEN: /**/
+TOKEN:
 {
 <TERMINAR: "end">{System.out.println("TERMINAR -> "+ image);} //43
 }
-TOKEN: /**/
+TOKEN:
 {
 <PROCEDIMIENTO: "procedure">{System.out.println("PROCEDIMIENTO -> "+ image);} //44
 }
-TOKEN: /**/
+TOKEN:
 {
 <EMPEZARMODULO: "unit">{System.out.println("EMPEZARMODULO -> "+ image);} //45
 }
-TOKEN: /**/
+TOKEN:
 {
 <UNIDADESAUTILIZAR: "uses">{System.out.println("UNIDADESAUTILIZAR -> "+ image);} //46
 }
@@ -204,11 +204,11 @@ TOKEN: /*Operadores*/
 <OPERADORLOGICO: "and" | "not" | "or" | "xor" | "&&" | "||" | "!" | "^">{System.out.println("OPERADORLOGICO -> "+ image);} //47
 |<OPERADORMATEMATICO: "/" | "*"| "-" | "+" | "%">{System.out.println("OPERADORMATEMATICO -> "+ image);} //48
 }
-TOKEN: /**/
+TOKEN:
 {
 <ASIGNACION: "=">{System.out.println("ASIGNACION -> "+ image);} //49
 }
-TOKEN: /**/
+TOKEN:
 {
 <TIEMPO: "date" | "time">{System.out.println("TIEMPO -> "+ image);} //50
 }
@@ -227,7 +227,7 @@ TOKEN: /*SQL*/
 |<SELECCIONAR: "select">{System.out.println("SELECCIONAR -> "+ image);} //61
 |<UNIR: "join">{System.out.println("UNIR -> "+ image);} //62
 }
-TOKEN: /**/
+TOKEN:
 {
 <TIPO: "type">{System.out.println("TIPO -> "+ image);} //63
 }
@@ -238,19 +238,19 @@ TOKEN: /*Maximos y minimos*/
 |<MINIMO: "min">{System.out.println("MINIMO -> "+ image);} //67
 |<MINIMOLISTA: "minimum">{System.out.println("MINIMOLISTA -> "+ image);} //68
 }
-TOKEN: /**/
+TOKEN:
 {
 <PROMEDIO: "avg">{System.out.println("PROMEDIO -> "+ image);} //69
 }
-TOKEN: /**/
+TOKEN:
 {
 <QUITARESPACIOS: "ltrim">{System.out.println("QUITARESPACIOS -> "+ image);} //70
 }
-TOKEN: /**/
+TOKEN:
 {
 <REPLICAR: "replicate">{System.out.println("REPLICAR -> "+ image);} //71
 }
-TOKEN: /**/
+TOKEN:
 {
 <VOLTEAR: "reverse">{System.out.println("VOLTEAR -> "+ image);} //72
 }
