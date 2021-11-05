@@ -27,7 +27,7 @@ TOKEN: /* Ciclos */
 }
 TOKEN:
 {
-<CONDICION: ("if")+>{System.out.println("CONDICION";} //3
+<CONDICION: ("if")+>{System.out.println("CONDICION");} //3
 }
 TOKEN:
 {
@@ -256,7 +256,7 @@ TOKEN:
 }
 TOKEN: /*Especiales*/
 {
-<FORMATOENTRADA: "%s" | "%d" | "%fi">{System.out.println("REGRESAR -> "+ image);} //74
+<FORMATOENTRADA: "%s" | "%d" | "%fi">{System.out.println("FORMATOENTRADA -> "+ image);} //74
 |<COMENTARIO: "//">{System.out.println("COMENTARIO");} //75
 }
 TOKEN:
