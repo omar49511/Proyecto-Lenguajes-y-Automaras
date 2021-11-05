@@ -170,6 +170,8 @@ public interface ProgramaConstants {
   int TODOS = 85;
   /** RegularExpression Id. */
   int ALGUNO = 86;
+  /** RegularExpression Id. */
+  int IDENTIFICADOR = 87;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -263,6 +265,7 @@ public interface ProgramaConstants {
     "\"elem\"",
     "\"all\"",
     "\"any\"",
+    "<IDENTIFICADOR>",
   };
 
 }
