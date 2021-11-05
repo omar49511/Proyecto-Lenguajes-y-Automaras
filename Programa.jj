@@ -27,85 +27,85 @@ TOKEN: /* Ciclos */
 }
 TOKEN:
 {
-<CONDICION: ("if")+>{System.out.println("CONDICION -> "+ image);} //3
+<CONDICION: ("if")+>{System.out.println("CONDICION";} //3
 }
 TOKEN:
 {
-<SINO: ("else")+>{System.out.println("SINO -> "+ image);} //3
+<SINO: ("else")+>{System.out.println("SINO");} //3
 }
 TOKEN:
 {
-<CASO: ("case")+>{System.out.println("CASO -> "+ image);} //4
+<CASO: ("case")+>{System.out.println("CASO");} //4
 }
 TOKEN:
 {
-<CONSTANTE: "const">{System.out.println("CONSTANTE -> "+ image);} //5
+<CONSTANTE: "const">{System.out.println("CONSTANTE");} //5
 }
 TOKEN:
 {
-<CLASE: "class">{System.out.println("CLASE -> "+ image);} //6
+<CLASE: "class">{System.out.println("CLASE");} //6
 }
 TOKEN:
 {
-<LIMPIARCONSOLA: "clear">{System.out.println("LIMPIARCONSOLA -> "+ image);} //7
+<LIMPIARCONSOLA: "clear">{System.out.println("LIMPIARCONSOLA");} //7
 }
 TOKEN:
 {
-<DETENER: "break">{System.out.println("DETENER -> "+ image);} //8
+<DETENER: "break">{System.out.println("DETENER");} //8
 }
 TOKEN:
 {
-<ESTATICO: "static">{System.out.println("ESTATICO -> "+ image);} //9
+<ESTATICO: "static">{System.out.println("ESTATICO");} //9
 }
 TOKEN:
 {
-<FLUJOCONTROL: "switch">{System.out.println("FLUJOCONTROL -> "+ image);} //10
+<FLUJOCONTROL: "switch">{System.out.println("FLUJOCONTROL");} //10
 }
 TOKEN:
 {
-<MANEJOEXEPCIONES: "try"| "catch" | "throw">{System.out.println("MANEJOEXEPCIONES -> "+ image);} //11
+<MANEJOEXEPCIONES: "try"| "catch" | "throw" | "Raise">{System.out.println("MANEJOEXEPCIONES -> "+ image);} //11
 }
 TOKEN:
 {
-<OPTIMIZACION: "volatile">{System.out.println("OPTIMIZACION -> "+ image);} //12
+<OPTIMIZACION: "volatile">{System.out.println("OPTIMIZACION");} //12
 }
 TOKEN:
 {
-<PORDEFECTO: "default">{System.out.println("PORDEFECTO -> "+ image);} //13
+<PORDEFECTO: "default">{System.out.println("PORDEFECTO");} //13
 }
 TOKEN:
 {
-<REGRESAR: "return">{System.out.println("REGRESAR -> "+ image);} //14
+<REGRESAR: "return" | "yield">{System.out.println("REGRESAR -> "+ image);} //14
 }
 TOKEN: /*TIPOS*/
 {
 <TIPOACCESO: "global" | "private" | "protected" | "public" | "transient" | "internal" | "abstract">{System.out.println("TIPOACCESO -> "+ image);} //15
 |<TIPODATO: "boolean" | "byte" | "char" | "double" | "float" | "int" | "varchar" | "decimal" | "tinyint"| "String" | "ushort" | "sbyte">{System.out.println("TIPODATO -> "+ image);} //16
-|<TIPOMETODO: "void">{System.out.println("TIPOMETODO -> "+ image);} //17
+|<TIPOMETODO: "void">{System.out.println("TIPOMETODO");} //17
 }
 TOKEN:
 {
-<ENUMERAR: "enum">{System.out.println("ENUMERAR -> "+ image);} //18
+<ENUMERAR: "enum">{System.out.println("ENUMERAR");} //18
 }
 TOKEN:
 {
-<SIZE: "sizeof">{System.out.println("SIZE -> "+ image);} //19
+<SIZE: "sizeof">{System.out.println("SIZE");} //19
 }
 TOKEN:
 {
-<ESTRUCTURA: "struct">{System.out.println("ESTRUCTURA -> "+ image);} //20
+<ESTRUCTURA: "struct">{System.out.println("ESTRUCTURA");} //20
 }
 TOKEN:
 {
-<UNION: "union">{System.out.println("UNION -> "+ image);} //21
+<UNION: "union">{System.out.println("UNION");} //21
 }
 TOKEN:
 {
-<DESDE: "from">{System.out.println("DESDE -> "+ image);} //22
+<DESDE: "from">{System.out.println("DESDE");} //22
 }
 TOKEN:
 {
-<CONTINUAR: "continue">{System.out.println("CONTINUAR -> "+ image);} //23
+<CONTINUAR: "continue">{System.out.println("CONTINUAR");} //23
 }
 TOKEN:
 {
@@ -113,23 +113,23 @@ TOKEN:
 }
 TOKEN:
 {
-<PAQUETE: "package">{System.out.println("PAQUETE -> "+ image);} //25
+<PAQUETE: "package">{System.out.println("PAQUETE");} //25
 }
 TOKEN:
 {
-<OTROLENGUAJE: "native">{System.out.println("OTROLENGUAJE -> "+ image);} //26
+<OTROLENGUAJE: "native">{System.out.println("OTROLENGUAJE");} //26
 }
 TOKEN:
 {
-<EXPORTAR: "export">{System.out.println("EXPORTAR -> "+ image);} //27
+<EXPORTAR: "export">{System.out.println("EXPORTAR");} //27
 }
 TOKEN:
 {
-<COMPROBARVALOREN: "in">{System.out.println("COMPROBARVALOREN -> "+ image);} //28
+<COMPROBARVALOREN: "in">{System.out.println("COMPROBARVALOREN");} //28
 }
 TOKEN:
 {
-<ES: "is">{System.out.println("ES -> "+ image);} //29
+<ES: "is">{System.out.println("ES");} //29
 }
 TOKEN:
 {
@@ -137,39 +137,39 @@ TOKEN:
 }
 TOKEN:
 {
-<NOOPERACION: "nop">{System.out.println("NOOPERACION -> "+ image);} //31
+<NOOPERACION: "nop">{System.out.println("NOOPERACION");} //31
 }
 TOKEN:
 {
-<DEFINIR: "#define">{System.out.println("DEFINIR -> "+ image);} //32
+<DEFINIR: "#define">{System.out.println("DEFINIR");} //32
 }
 TOKEN:
 {
-<INCLUIR: "#include">{System.out.println("INCLUIR -> "+ image);} //33
+<INCLUIR: "#include">{System.out.println("INCLUIR");} //33
 }
 TOKEN:
 {
-<SINCRONIZAR: "synchronized">{System.out.println("SINCRONIZAR -> "+ image);} //34
+<SINCRONIZAR: "synchronized">{System.out.println("SINCRONIZAR");} //34
 }
 TOKEN:
 {
-<HILO: "Thread">{System.out.println("HILO -> "+ image);} //35
+<HILO: "Thread">{System.out.println("HILO");} //35
 }
 TOKEN:
 {
-<NUMEROSINSIGNO: "unsigned">{System.out.println("NUMEROSINSIGNO -> "+ image);} //36
+<NUMEROSINSIGNO: "unsigned">{System.out.println("NUMEROSINSIGNO");} //36
 }
 TOKEN:
 {
-<NUEVAINSTANCIA: "new">{System.out.println("NUEVAINSTANCIA -> "+ image);} //37
+<NUEVAINSTANCIA: "new">{System.out.println("NUEVAINSTANCIA");} //37
 }
 TOKEN:
 {
-<ARREGLO: "Array">{System.out.println("ARREGLO -> "+ image);} //38
+<ARREGLO: "Array">{System.out.println("ARREGLO");} //38
 }
 TOKEN:
 {
-<IMPLEMENTAR: "implements">{System.out.println("IMPLEMENTAR -> "+ image);} //39
+<IMPLEMENTAR: "implements">{System.out.println("IMPLEMENTAR");} //39
 }
 TOKEN:
 {
@@ -177,27 +177,27 @@ TOKEN:
 }
 TOKEN:
 {
-<CERRAR: "close">{System.out.println("CERRAR -> "+ image);} //41
+<CERRAR: "close">{System.out.println("CERRAR");} //41
 }
 TOKEN:
 {
-<EMPEZAR: "begin">{System.out.println("EMPEZAR -> "+ image);} //42
+<EMPEZAR: "begin">{System.out.println("EMPEZAR");} //42
 }
 TOKEN:
 {
-<TERMINAR: "end">{System.out.println("TERMINAR -> "+ image);} //43
+<TERMINAR: "end">{System.out.println("TERMINAR");} //43
 }
 TOKEN:
 {
-<PROCEDIMIENTO: "procedure">{System.out.println("PROCEDIMIENTO -> "+ image);} //44
+<PROCEDIMIENTO: "procedure">{System.out.println("PROCEDIMIENTO");} //44
 }
 TOKEN:
 {
-<EMPEZARMODULO: "unit">{System.out.println("EMPEZARMODULO -> "+ image);} //45
+<EMPEZARMODULO: "unit">{System.out.println("EMPEZARMODULO");} //45
 }
 TOKEN:
 {
-<UNIDADESAUTILIZAR: "uses">{System.out.println("UNIDADESAUTILIZAR -> "+ image);} //46
+<UNIDADESAUTILIZAR: "uses">{System.out.println("UNIDADESAUTILIZAR");} //46
 }
 TOKEN: /*Operadores*/
 {
@@ -206,7 +206,7 @@ TOKEN: /*Operadores*/
 }
 TOKEN:
 {
-<ASIGNACION: "=">{System.out.println("ASIGNACION -> "+ image);} //49
+<ASIGNACION: "=">{System.out.println("ASIGNACION");} //49
 }
 TOKEN:
 {
@@ -214,52 +214,59 @@ TOKEN:
 }
 TOKEN: /*SQL*/
 {
-<CREAR: "create">{System.out.println("CREAR -> "+ image);} //51
-|<USAR: "use">{System.out.println("USAR -> "+ image);} //52
-|<TABLA: "table">{System.out.println("TABLA -> "+ image);} //53
-|<EJECUTAR: "exec">{System.out.println("EJECUTAR -> "+ image);} //54
-|<LLAVE: "key">{System.out.println("LLAVE -> "+ image);} //55
-|<INSERTAR: "insert">{System.out.println("INSERTAR -> "+ image);} //56
-|<VALORES: "values">{System.out.println("VALORES -> "+ image);} //57
-|<CONTAR: "count">{System.out.println("CONTAR -> "+ image);} //58
-|<FORANEO: "foreign">{System.out.println("FORANEO -> "+ image);} //59
-|<VISTA: "view">{System.out.println("VISTA -> "+ image);} //60
-|<SELECCIONAR: "select">{System.out.println("SELECCIONAR -> "+ image);} //61
-|<UNIR: "join">{System.out.println("UNIR -> "+ image);} //62
+<CREAR: "create">{System.out.println("CREAR");} //51
+|<USAR: "use">{System.out.println("USAR");} //52
+|<TABLA: "table">{System.out.println("TABLA");} //53
+|<EJECUTAR: "exec">{System.out.println("EJECUTAR");} //54
+|<LLAVE: "key">{System.out.println("LLAVE");} //55
+|<INSERTAR: "insert">{System.out.println("INSERTAR");} //56
+|<VALORES: "values">{System.out.println("VALORES");} //57
+|<CONTAR: "count">{System.out.println("CONTAR");} //58
+|<FORANEO: "foreign">{System.out.println("FORANEO");} //59
+|<VISTA: "view">{System.out.println("VISTA");} //60
+|<SELECCIONAR: "select">{System.out.println("SELECCIONAR");} //61
+|<UNIR: "join">{System.out.println("UNIR");} //62
 }
 TOKEN:
 {
-<TIPO: "type">{System.out.println("TIPO -> "+ image);} //63
+<TIPO: "type">{System.out.println("TIPO");} //63
 }
 TOKEN: /*Maximos y minimos*/
 {
-<MAXIMO: "max">{System.out.println("MAXIMO -> "+ image);} //64
-|<MAXIMOLISTA: "maximum">{System.out.println("MAXIMOLISTA -> "+ image);} //66
-|<MINIMO: "min">{System.out.println("MINIMO -> "+ image);} //67
-|<MINIMOLISTA: "minimum">{System.out.println("MINIMOLISTA -> "+ image);} //68
+<MAXIMO: "max">{System.out.println("MAXIMO");} //64
+|<MAXIMOLISTA: "maximum">{System.out.println("MAXIMOLISTA");} //66
+|<MINIMO: "min">{System.out.println("MINIMO");} //67
+|<MINIMOLISTA: "minimum">{System.out.println("MINIMOLISTA");} //68
 }
 TOKEN:
 {
-<PROMEDIO: "avg">{System.out.println("PROMEDIO -> "+ image);} //69
+<PROMEDIO: "avg">{System.out.println("PROMEDIO");} //69
 }
 TOKEN:
 {
-<QUITARESPACIOS: "ltrim">{System.out.println("QUITARESPACIOS -> "+ image);} //70
+<QUITARESPACIOS: "ltrim">{System.out.println("QUITARESPACIOS");} //70
 }
 TOKEN:
 {
-<REPLICAR: "replicate">{System.out.println("REPLICAR -> "+ image);} //71
+<REPLICAR: "replicate">{System.out.println("REPLICAR");} //71
 }
 TOKEN:
 {
-<VOLTEAR: "reverse">{System.out.println("VOLTEAR -> "+ image);} //72
+<VOLTEAR: "reverse">{System.out.println("VOLTEAR");} //72
 }
 TOKEN: /*Especiales*/
 {
 <FORMATOENTRADA: "%s" | "%d" | "%fi">{System.out.println("REGRESAR -> "+ image);} //74
-|<COMENTARIO: "//">{System.out.println("COMENTARIO -> "+ image);} //75
+|<COMENTARIO: "//">{System.out.println("COMENTARIO");} //75
 }
-
+TOKEN:
+{
+  <ACCESOCLASE: "base" | "super"> {System.out.println("ACCESOCLASE -> "+ image);}
+}
+TOKEN:
+{
+  <AFIRMACONDICION: "assert"> {System.out.println("AFIRMACONDICION");}
+}
 SKIP :
 {
   " "
@@ -349,6 +356,8 @@ void Instruccion() :
 <REPLICAR>|
 <VOLTEAR>|
 <FORMATOENTRADA>|
-<COMENTARIO>
+<COMENTARIO>|
+<ACCESOCLASE>|
+<AFIRMACONDICION>
 )
 }

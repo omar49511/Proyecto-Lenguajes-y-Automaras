@@ -15,10 +15,12 @@ switch
 try
 catch
 throw
+Raise
 volatile
 default
 else
 return
+yield
 global
 private
 protected
@@ -112,3 +114,6 @@ reverse
 %d
 %fi
 //
+base
+super
+assert
