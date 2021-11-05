@@ -16,3 +16,339 @@ public class Programa
   }
 }
 PARSER_END(Programa)
+
+TOKEN : /* Booleano */
+{
+<BOOLEANO: "true" | "false">{System.out.println("BOOLEANO -> "+ image);} //1
+}
+TOKEN: /* Ciclos */
+{
+<CICLO: "do"| "for" | "while" | "loop">{System.out.println("CICLO -> "+ image);} //2
+}
+TOKEN: /**/
+{
+<CONDICION: ("if")+>{System.out.println("CONDICION -> "+ image);} //3
+}
+TOKEN: /**/
+{
+<SINO: ("else")+>{System.out.println("SINO -> "+ image);} //3
+}
+TOKEN: /**/
+{
+<CASO: ("case")+>{System.out.println("CASO -> "+ image);} //4
+}
+TOKEN: /**/
+{
+<CONSTANTE: "const">{System.out.println("CONSTANTE -> "+ image);} //5
+}
+TOKEN: /**/
+{
+<CLASE: "class">{System.out.println("CLASE -> "+ image);} //6
+}
+TOKEN: /**/
+{
+<LIMPIARCONSOLA: "clear">{System.out.println("LIMPIARCONSOLA -> "+ image);} //7
+}
+TOKEN: /**/
+{
+<DETENER: "break">{System.out.println("DETENER -> "+ image);} //8
+}
+TOKEN: /**/
+{
+<ESTATICO: "static">{System.out.println("ESTATICO -> "+ image);} //9
+}
+TOKEN: /**/
+{
+<FLUJOCONTROL: "switch">{System.out.println("FLUJOCONTROL -> "+ image);} //10
+}
+TOKEN: /**/
+{
+<MANEJOEXEPCIONES: "try"| "catch" | "throw">{System.out.println("MANEJOEXEPCIONES -> "+ image);} //11
+}
+TOKEN: /**/
+{
+<OPTIMIZACION: "volatile">{System.out.println("OPTIMIZACION -> "+ image);} //12
+}
+TOKEN: /**/
+{
+<PORDEFECTO: "default">{System.out.println("PORDEFECTO -> "+ image);} //13
+}
+TOKEN: /**/
+{
+<REGRESAR: "return">{System.out.println("REGRESAR -> "+ image);} //14
+}
+TOKEN: /*TIPOS*/
+{
+<TIPOACCESO: "global" | "private" | "protected" | "public" | "transient" | "internal" | "abstract">{System.out.println("TIPOACCESO -> "+ image);} //15
+|<TIPODATO: "boolean" | "byte" | "char" | "double" | "float" | "int" | "varchar" | "decimal" | "tinyint"| "String" | "ushort" | "sbyte">{System.out.println("TIPODATO -> "+ image);} //16
+|<TIPOMETODO: "void">{System.out.println("TIPOMETODO -> "+ image);} //17
+}
+TOKEN: /**/
+{
+<ENUMERAR: "enum">{System.out.println("ENUMERAR -> "+ image);} //18
+}
+TOKEN: /**/
+{
+<SIZE: "sizeof">{System.out.println("SIZE -> "+ image);} //19
+}
+TOKEN: /**/
+{
+<ESTRUCTURA: "struct">{System.out.println("ESTRUCTURA -> "+ image);} //20
+}
+TOKEN: /**/
+{
+<UNION: "union">{System.out.println("UNION -> "+ image);} //21
+}
+TOKEN: /**/
+{
+<DESDE: "from">{System.out.println("DESDE -> "+ image);} //22
+}
+TOKEN: /**/
+{
+<CONTINUAR: "continue">{System.out.println("CONTINUAR -> "+ image);} //23
+}
+TOKEN: /**/
+{
+<IRA: "goto" | "jump">{System.out.println("IRA -> "+ image);} //24
+}
+TOKEN: /**/
+{
+<PAQUETE: "package">{System.out.println("PAQUETE -> "+ image);} //25
+}
+TOKEN: /**/
+{
+<OTROLENGUAJE: "native">{System.out.println("OTROLENGUAJE -> "+ image);} //26
+}
+TOKEN: /**/
+{
+<EXPORTAR: "export">{System.out.println("EXPORTAR -> "+ image);} //27
+}
+TOKEN: /**/
+{
+<COMPROBARVALOREN: "in">{System.out.println("COMPROBARVALOREN -> "+ image);} //28
+}
+TOKEN: /**/
+{
+<ES: "is">{System.out.println("ES -> "+ image);} //29
+}
+TOKEN: /**/
+{
+<BORRAR: "del" | "drop">{System.out.println("BORRAR -> "+ image);} //30
+}
+TOKEN: /**/
+{
+<NOOPERACION: "nop">{System.out.println("NOOPERACION -> "+ image);} //31
+}
+TOKEN: /**/
+{
+<DEFINIR: "#define">{System.out.println("DEFINIR -> "+ image);} //32
+}
+TOKEN: /**/
+{
+<INCLUIR: "#include">{System.out.println("INCLUIR -> "+ image);} //33
+}
+TOKEN: /**/
+{
+<SINCRONIZAR: "synchronized">{System.out.println("SINCRONIZAR -> "+ image);} //34
+}
+TOKEN: /**/
+{
+<HILO: "Thread">{System.out.println("HILO -> "+ image);} //35
+}
+TOKEN: /**/
+{
+<NUMEROSINSIGNO: "unsigned">{System.out.println("NUMEROSINSIGNO -> "+ image);} //36
+}
+TOKEN: /**/
+{
+<NUEVAINSTANCIA: "new">{System.out.println("NUEVAINSTANCIA -> "+ image);} //37
+}
+TOKEN: /**/
+{
+<ARREGLO: "Array">{System.out.println("ARREGLO -> "+ image);} //38
+}
+TOKEN: /**/
+{
+<IMPLEMENTAR: "implements">{System.out.println("IMPLEMENTAR -> "+ image);} //39
+}
+TOKEN: /**/
+{
+<SALIR: "exit" | "quit">{System.out.println("SALIR -> "+ image);} //40
+}
+TOKEN: /**/
+{
+<CERRAR: "close">{System.out.println("CERRAR -> "+ image);} //41
+}
+TOKEN: /**/
+{
+<EMPEZAR: "begin">{System.out.println("EMPEZAR -> "+ image);} //42
+}
+TOKEN: /**/
+{
+<TERMINAR: "end">{System.out.println("TERMINAR -> "+ image);} //43
+}
+TOKEN: /**/
+{
+<PROCEDIMIENTO: "procedure">{System.out.println("PROCEDIMIENTO -> "+ image);} //44
+}
+TOKEN: /**/
+{
+<EMPEZARMODULO: "unit">{System.out.println("EMPEZARMODULO -> "+ image);} //45
+}
+TOKEN: /**/
+{
+<UNIDADESAUTILIZAR: "uses">{System.out.println("UNIDADESAUTILIZAR -> "+ image);} //46
+}
+TOKEN: /*Operadores*/
+{
+<OPERADORLOGICO: "and" | "not" | "or" | "xor" | "&&" | "||" | "!" | "^">{System.out.println("OPERADORLOGICO -> "+ image);} //47
+|<OPERADORMATEMATICO: "/" | "*"| "-" | "+" | "%">{System.out.println("OPERADORMATEMATICO -> "+ image);} //48
+}
+TOKEN: /**/
+{
+<ASIGNACION: "=">{System.out.println("ASIGNACION -> "+ image);} //49
+}
+TOKEN: /**/
+{
+<TIEMPO: "date" | "time">{System.out.println("TIEMPO -> "+ image);} //50
+}
+TOKEN: /*SQL*/
+{
+<CREAR: "create">{System.out.println("CREAR -> "+ image);} //51
+|<USAR: "use">{System.out.println("USAR -> "+ image);} //52
+|<TABLA: "table">{System.out.println("TABLA -> "+ image);} //53
+|<EJECUTAR: "exec">{System.out.println("EJECUTAR -> "+ image);} //54
+|<LLAVE: "key">{System.out.println("LLAVE -> "+ image);} //55
+|<INSERTAR: "insert">{System.out.println("INSERTAR -> "+ image);} //56
+|<VALORES: "values">{System.out.println("VALORES -> "+ image);} //57
+|<CONTAR: "count">{System.out.println("CONTAR -> "+ image);} //58
+|<FORANEO: "foreign">{System.out.println("FORANEO -> "+ image);} //59
+|<VISTA: "view">{System.out.println("VISTA -> "+ image);} //60
+|<SELECCIONAR: "select">{System.out.println("SELECCIONAR -> "+ image);} //61
+|<UNIR: "join">{System.out.println("UNIR -> "+ image);} //62
+}
+TOKEN: /**/
+{
+<TIPO: "type">{System.out.println("TIPO -> "+ image);} //63
+}
+TOKEN: /*Maximos y minimos*/
+{
+<MAXIMO: "max">{System.out.println("MAXIMO -> "+ image);} //64
+|<MAXIMOLISTA: "maximum">{System.out.println("MAXIMOLISTA -> "+ image);} //66
+|<MINIMO: "min">{System.out.println("MINIMO -> "+ image);} //67
+|<MINIMOLISTA: "minimum">{System.out.println("MINIMOLISTA -> "+ image);} //68
+}
+TOKEN: /**/
+{
+<PROMEDIO: "avg">{System.out.println("PROMEDIO -> "+ image);} //69
+}
+TOKEN: /**/
+{
+<QUITARESPACIOS: "ltrim">{System.out.println("QUITARESPACIOS -> "+ image);} //70
+}
+TOKEN: /**/
+{
+<REPLICAR: "replicate">{System.out.println("REPLICAR -> "+ image);} //71
+}
+TOKEN: /**/
+{
+<VOLTEAR: "reverse">{System.out.println("VOLTEAR -> "+ image);} //72
+}
+TOKEN: /*Especiales*/
+{
+<FORMATOENTRADA: "%s" | "%d" | "%fi">{System.out.println("REGRESAR -> "+ image);} //74
+|<COMENTARIO: "//">{System.out.println("COMENTARIO -> "+ image);} //75
+}
+
+SKIP :
+{
+  " "
+| "\t"
+| "\n"
+| "\r"
+}
+void Iniciar() :
+{}
+{
+  (Instruccion())+<EOF>
+}
+void Instruccion() :
+{}
+{
+(
+<BOOLEANO>|
+<CICLO>|
+<CONDICION>|
+<CASO>|
+<CONSTANTE>|
+<CLASE>| 
+<LIMPIARCONSOLA>|
+<DETENER>|
+<ESTATICO>|
+<FLUJOCONTROL>|
+<MANEJOEXEPCIONES>|
+<OPTIMIZACION>|
+<PORDEFECTO>|
+<SINO>|
+<REGRESAR>|
+<TIPOACCESO>|
+<TIPODATO>|
+<TIPOMETODO>|
+<ENUMERAR>|
+<SIZE>|
+<ESTRUCTURA>|
+<UNION>|
+<DESDE>|
+<CONTINUAR>|
+<IRA>|
+<PAQUETE>|
+<OTROLENGUAJE>|
+<EXPORTAR>|
+<COMPROBARVALOREN>|
+<ES>|
+<BORRAR>|
+<NOOPERACION>|
+<DEFINIR>|
+<INCLUIR>|
+<SINCRONIZAR>|
+<HILO>|
+<NUMEROSINSIGNO>|
+<NUEVAINSTANCIA>|
+<ARREGLO>|
+<IMPLEMENTAR>|
+<SALIR>|
+<CERRAR>|
+<EMPEZAR>|
+<TERMINAR>|
+<PROCEDIMIENTO>|
+<EMPEZARMODULO>|
+<UNIDADESAUTILIZAR>|
+<OPERADORLOGICO>|
+<OPERADORMATEMATICO>|
+<ASIGNACION>|
+<TIEMPO>|
+<CREAR>|
+<USAR>|
+<TABLA>|
+<EJECUTAR>|
+<LLAVE>|
+<INSERTAR>|
+<VALORES>|
+<CONTAR>|
+<FORANEO>|
+<VISTA>|
+<TIPO>|
+<MAXIMO>|
+<MAXIMOLISTA>|
+<MINIMO>|
+<MINIMOLISTA>|
+<PROMEDIO>|
+<SELECCIONAR>|
+<UNIR>|
+<QUITARESPACIOS>|
+<REPLICAR>|
+<VOLTEAR>|
+<FORMATOENTRADA>|
+<COMENTARIO>
+)
+}
